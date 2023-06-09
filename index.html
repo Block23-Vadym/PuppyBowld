@@ -8,11 +8,11 @@
   <link rel="stylesheet" href="styles.css">
   <title>PuppyBowl</title>
 </head>
-<body>
+<body onload="openList(event, 'MainPAge');">
 
 
   <ul class="tab">
-    <li><a href="#" class="tablinks" onclick="openList(event, 'MainPage')">Main page</a></li>
+    <li><a href="#" class="tablinks" onclick="openList(event, 'MainPage')">Main page (Fetch All Players)</a></li>
     <li><a href="#" class="tablinks" onclick="openList(event, 'AddingPLayer')">Adding Player</a></li>
     <li><a href="#" class="tablinks" onclick="openList(event, 'RemovePlayer')">Remove Player</a></li>
     <li><a href="#" class="tablinks" onclick="openList(event, 'ScretchGoals')">Scretch Goals</a></li>
@@ -28,7 +28,7 @@
 <!-- ------------------------------------------- -->
  <div id="AddingPLayer" class="tabcontent">
   <br>
-
+  testing adding player text HTML
   <!-- form to add new players -->
   <div id="new-player-form"></div>
   

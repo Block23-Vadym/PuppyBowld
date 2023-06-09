@@ -4,7 +4,7 @@
     box-sizing: border-box;
   }
   div.player{
-    border: 2px solid black;
+    border: 10px solid green;
     padding: 2%;
-    width: 40%;
+    width: 45%;
   }
