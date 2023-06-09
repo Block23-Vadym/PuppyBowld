@@ -49,9 +49,9 @@ The linked image should show up as the player's portrait.
 Test suits
 ===========
 
-Open a list of players using JavaScript: getElementsByClassName, getElementById (details  and examples at MyRezume JS)
-Name and Breed shoud accept only English alphabet and not less than 2 letters and max is 15 letters (no spec symbols etc)
-Suubmit button should be disabled if Conditions for Name and Breed are not done
-It is not allowed to create players with the same name and breed (&&)
-After adding a player it should be instatnly added to list without any refreshing (page refresh,list reopen etc)
-When
+-Open a list of players using JavaScript: getElementsByClassName, getElementById (details  and examples at MyRezume JS)
+-Name and Breed shoud accept only English alphabet and not less than 2 letters and max is 50 letters (no spec symbols etc)
+-Suubmit button should be disabled if Conditions for Name and Breed are not done
+-It is not allowed to create players with the same name and breed (&&)
+-After adding a player it should be instatnly added to list without any refreshing (page refresh,list reopen etc)
+-Should be an additioal window for Strech Goals, for right now you can input some data for example
