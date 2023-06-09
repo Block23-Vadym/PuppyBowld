@@ -12,7 +12,11 @@ const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
  */
 const fetchAllPlayers = async () => {
     try {
-
+      const response = await fetch(APIURL + `players`);
+      console.log(response)
+      const players = await response.json();
+      console.log(players)
+      return players.data.players;
     } catch (err) {
         console.error('Uh oh, trouble fetching players!', err);
     }
@@ -67,7 +71,21 @@ const removePlayer = async (playerId) => {
  */
 const renderAllPlayers = (playerList) => {
     try {
-        
+      console.log(playerList);
+      playerContainer.innerHTML = ``;
+      playerList.forEach((player) => {
+          const playerElement = document.createElement(`div`);
+          playerElement.classList.add(`player`);
+          playerElement.innerHTML = `
+          <h2>${player.name}</h2>
+          <p>${player.imageURL}</p>
+          <p>${player.breed}</p>
+          <p>${player.status}</p>
+          <p>${player.teamId}</p>
+          <button class = "remove-button" data-id="${player.id}">Remove</button>
+          `;
+          playerContainer.appendChild(playerElement);
+      });
     } catch (err) {
         console.error('Uh oh, trouble rendering players!', err);
     }
@@ -91,6 +109,26 @@ const init = async () => {
     renderAllPlayers(players);
 
     renderNewPlayerForm();
+}
+function openList(evt, menuName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tabcontent.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the link that opened the tab
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
 init();

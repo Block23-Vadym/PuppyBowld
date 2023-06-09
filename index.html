@@ -9,12 +9,45 @@
   <title>PuppyBowl</title>
 </head>
 <body>
-  <!-- form to add new players -->
-  <div id="new-player-form"></div>
+
+
+  <ul class="tab">
+    <li><a href="#" class="tablinks" onclick="openList(event, 'MainPage')">Main page</a></li>
+    <li><a href="#" class="tablinks" onclick="openList(event, 'AddingPLayer')">Adding Player</a></li>
+    <li><a href="#" class="tablinks" onclick="openList(event, 'RemovePlayer')">Remove Player</a></li>
+    <li><a href="#" class="tablinks" onclick="openList(event, 'ScretchGoals')">Scretch Goals</a></li>
+  </ul>
+<!-- ------------------fetch  players ------------------------- -->
+  <div id="MainPage" class="tabcontent">
+    <br>
 
   <!-- container for all players -->
   <div id="all-players-container"></div>
 
+  </div>
+<!-- ------------------------------------------- -->
+ <div id="AddingPLayer" class="tabcontent">
+  <br>
+
+  <!-- form to add new players -->
+  <div id="new-player-form"></div>
+  
+ </div>
+<!-- ------------------------------------------- -->
+  <div id="RemovePlayer" class="tabcontent">
+    <br>
+
+  testing remove player text HTML
+    
+  </div>
+<!-- ------------------------------------------- -->
+  <div id="ScretchGoals" class="tabcontent">
+    <br>
+
+  testing scretch goals text HTML
+      
+  </div>
+<!-- ------------------------------------------- -->
   <!-- import JavaScript -->
   <script src="./script.js"></script>
 </body>

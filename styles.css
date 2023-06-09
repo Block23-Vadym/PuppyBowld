@@ -3,3 +3,8 @@
     margin: 0;
     box-sizing: border-box;
   }
+  div.player{
+    border: 2px solid black;
+    padding: 2%;
+    width: 40%;
+  }
