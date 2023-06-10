@@ -12,7 +12,7 @@ const APIURL = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/`;
  */
 const fetchAllPlayers = async () => {
     try {
-      const response = await fetch(APIURL + `players`);
+      const response = await fetch(APIURL + "players");
       console.log(response)
       const players = await response.json();
       console.log(players)
@@ -24,30 +24,65 @@ const fetchAllPlayers = async () => {
 
 const fetchSinglePlayer = async (playerId) => {
     try {
-
-    } catch (err) {
+        //fetch a single player using it's id
+        const response = await fetch("${APIURL}/${id}");
+        // convert (parse) the single player into an object
+        const playerElement = document.createElement("div");
+        playerElement.classList.add("player");
+        playerElement.innerHTML = `
+                <h4>${player.title}</h4>
+                <p>${player.instructions}</p>
+            `;
+        playerContainer.appendChild(playerElement);
+      } catch (err) {
         console.error(`Oh no, trouble fetching player #${playerId}!`, err);
-    }
-};
+      }
+    };
 
-const addNewPlayer = async (playerObj) => {
-    try {
-
-    } catch (err) {
-        console.error('Oops, something went wrong with adding that player!', err);
-    }
+    const addNewPlayer = async (playerId) => {
+        try {
+          const response = await fetch(APIURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          const result = await response.json();
+          console.log(result);
+        } catch (err) {
+          console.error("Oops, something went wrong with adding that player!", err);
+        }
 };
 
 const removePlayer = async (playerId) => {
     try {
-
-    } catch (err) {
-        console.error(
-            `Whoops, trouble removing player #${playerId} from the roster!`,
-            err
+      fetch("https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/", {
+        method: "DELETE",
+      });
+      try {
+  
+        const response = await fetch(
+          "https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}/",
+          {
+            method: "DELETE",
+          }
         );
+        const result = await response.json();
+        console.log(result);
+      } catch (err) {
+          console.error(
+              `Whoops, trouble removing player #${playerId} from the roster!`,
+              err
+          );
+        console.error(err);
+      }
+    } catch (err) {
+      console.error(
+        `Whoops, trouble removing player #${playerId} from the roster!`,
+        err
+      );
     }
-};
+  };
 
 /**
  * It takes an array of player objects, loops through them, and creates a string of HTML for each
